@@ -9,6 +9,32 @@
 
 **Leandro M. F. Machado**
 
+## 💻 Future Reference
+
+Typescript for Node.js:
+
+```shell
+$ yarn add -D typescript ts-node-dev @types/node
+```
+
+ESLint:
+
+```shell
+$ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+```
+
+Prettier:
+
+```shell
+$ yarn add -D prettier
+```
+
+ESLint + Prettier:
+
+```shell
+$ yarn add -D eslint-config-prettier@6.15.0 eslint-plugin-prettier@3.2.0
+```
+
 <h1 align="center">
 <img src="https://media.giphy.com/media/EIiJp9cQ3GeEU/giphy.gif">
 </h1>

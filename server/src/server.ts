@@ -1,1 +1,1 @@
-console.log("Teste de sanidade...");
+console.log('Teste de sanidade...');
