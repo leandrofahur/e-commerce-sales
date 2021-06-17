@@ -20,7 +20,7 @@ $ yarn add -D typescript ts-node-dev @types/node tsconfig-paths
 ESLint:
 
 ```shell
-$ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+$ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @types/uuid
 ```
 
 Prettier:
