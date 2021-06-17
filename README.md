@@ -14,7 +14,7 @@
 Typescript for Node.js:
 
 ```shell
-$ yarn add -D typescript ts-node-dev @types/node
+$ yarn add -D typescript ts-node-dev @types/node tsconfig-paths
 ```
 
 ESLint:
@@ -33,6 +33,12 @@ ESLint + Prettier:
 
 ```shell
 $ yarn add -D eslint-config-prettier@6.15.0 eslint-plugin-prettier@3.2.0
+```
+
+Typeorm:
+
+```shell
+$ yarn add typeorm reflect-metadata pg
 ```
 
 <h1 align="center">
