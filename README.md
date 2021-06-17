@@ -38,7 +38,7 @@ $ yarn add -D eslint-config-prettier@6.15.0 eslint-plugin-prettier@3.2.0
 Typeorm:
 
 ```shell
-$ yarn add typeorm reflect-metadata pg
+$ yarn add typeorm reflect-metadata pg uuid
 ```
 
 <h1 align="center">
