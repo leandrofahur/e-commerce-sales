@@ -5,17 +5,21 @@ import AppError from '@shared/errors/AppError';
 
 interface IRequest {
   id: string;
+  name: string;
+  price: number;
+  quantity: number;
 }
 
-class ShowProductService {
-  public async execute({ id }: IRequest): Promise<Product> {
+class DeleteProductService {
+  public async execute({ id }: IRequest): Promise<void> {
     const productsRepository = getCustomRepository(ProductRepository);
     const product = await productsRepository.findOne(id);
     if (!product) {
       throw new AppError('Product does not exist in the database');
     }
-    return product;
+
+    await productsRepository.remove(product);
   }
 }
 
-export default ShowProductService;
+export default DeleteProductService;
