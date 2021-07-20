@@ -14,7 +14,7 @@ export class Product extends BaseEntity {
   @PrimaryColumn('uuid')
   readonly id: string;
 
-  @Column('string')
+  @Column()
   name: string;
 
   @Column('decimal')
