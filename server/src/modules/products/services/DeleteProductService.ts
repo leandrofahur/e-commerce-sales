@@ -1,13 +1,9 @@
 import { getCustomRepository } from 'typeorm';
 import { ProductRepository } from '../typeorm/repositories/ProductsRepository';
-import { Product } from '../typeorm/entities/Product';
 import AppError from '@shared/errors/AppError';
 
 interface IRequest {
   id: string;
-  name: string;
-  price: number;
-  quantity: number;
 }
 
 class DeleteProductService {
