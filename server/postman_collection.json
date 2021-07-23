@@ -137,7 +137,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"leandro\",\n    \"email\":\"leandro@email.com\",\n    \"password\":\"leandro123\"\n}",
+							"raw": "{\n    \"name\":\"ocean\",\n    \"email\":\"ocean@email.com\",\n    \"password\":\"ocean123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -161,6 +161,16 @@
 				{
 					"name": "List all users",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjcwMDMyNTcsImV4cCI6MTYyNzA4OTY1Nywic3ViIjoiMWU3MDMyN2EtMmY3Mi00YWVmLWIwMjItNTFjNTZmMzIyZmUxIn0.liHghAMcwLkndUksf0IFdVxNNio1rMiYq65vIuNs4Bg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -173,6 +183,133 @@
 							"path": [
 								"users",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create/Update Avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjcwMDMyNTcsImV4cCI6MTYyNzA4OTY1Nywic3ViIjoiMWU3MDMyN2EtMmY3Mi00YWVmLWIwMjItNTFjNTZmMzIyZmUxIn0.liHghAMcwLkndUksf0IFdVxNNio1rMiYq65vIuNs4Bg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/Users/leandro/Desktop/le/projects/DSC/profile.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/avatar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"avatar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "Create a new session  ( authentication )",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"ocean@email.com\",\n    \"password\":\"leandro123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "Forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"leandro@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/password/forgot",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"password",
+								"forgot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/password/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"password",
+								"reset"
 							]
 						}
 					},
