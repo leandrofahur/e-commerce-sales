@@ -5,7 +5,6 @@ import { UserRepository } from '../typeorm/repositories/UsersRepository';
 import { User } from '../typeorm/entities/User';
 import AppError from '@shared/errors/AppError';
 import uploadConfig from '@config/upload';
-import { fstat } from 'fs';
 
 interface IRequest {
   user_id: string;
@@ -15,15 +14,15 @@ interface IRequest {
 class UpdateUserAvatarService {
   public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
     const usersRepository = getCustomRepository(UserRepository);
+
     const user = await usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError('user not found');
+      throw new AppError('User not found.');
     }
 
     if (user.avatar) {
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
-
       const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
 
       if (userAvatarFileExists) {
