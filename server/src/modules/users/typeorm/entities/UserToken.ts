@@ -30,8 +30,9 @@ export class UserToken extends BaseEntity {
 
   constructor() {
     super();
-    if (!this.id) {
+    if (!this.id && !this.token) {
       this.id = uuid();
+      this.token = uuid();
     }
   }
 }

@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError';
 import { EntityRepository, Repository } from 'typeorm';
 import { UserToken } from '../entities/UserToken';
 
@@ -13,7 +14,7 @@ class UserTokensRepository extends Repository<UserToken> {
     return userToken;
   }
 
-  public async generateToken(user_id: string): Promise<UserToken | undefined> {
+  public async generate(user_id: string): Promise<UserToken | undefined> {
     const userToken = await this.create({
       user_id,
     });
