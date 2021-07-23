@@ -2,7 +2,12 @@ import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 import authConfig from '@config/auth';
 import AppError from '../errors/AppError';
-import { error } from 'console';
+
+interface ITokenPayload {
+  iat: number;
+  exp: number;
+  sub: string;
+}
 
 export const isAuthenticated = (
   request: Request,
@@ -19,6 +24,11 @@ export const isAuthenticated = (
 
   try {
     const decodedToken = verify(token, authConfig.jwt.secret);
+    const { sub } = decodedToken as ITokenPayload;
+
+    request.user = {
+      id: sub,
+    };
 
     return next();
   } catch {
