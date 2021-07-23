@@ -22,6 +22,8 @@ class CreateUsertService {
 
     const user = usersRepository.create({ name, email, password });
 
+    await usersRepository.save(user);
+
     return user;
   }
 }
