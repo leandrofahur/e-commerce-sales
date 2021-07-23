@@ -3,6 +3,7 @@ import { UserRepository } from '../typeorm/repositories/UsersRepository';
 
 import { UserTokensRepository } from '../typeorm/repositories/UserTokensRepository';
 import AppError from '@shared/errors/AppError';
+import { EtherealMail } from '@config/mail/EtherealMail';
 
 interface IRequest {
   email: string;
@@ -21,7 +22,11 @@ class SendForgotPasswordEmailService {
 
     const token = await userTokensRepository.generate(user.id);
 
-    console.log(token);
+    // console.log(token);
+    await EtherealMail.sendMail({
+      to: email,
+      body: `Token for password change: ${token?.token}`,
+    });
   }
 }
 
