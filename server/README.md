@@ -28,6 +28,7 @@ $ npm run dev
 $ yarn dev
 ```
 
+<hr>
 <br>
 
 <h2>🥒 <strong>Testing</strong></h2>
@@ -41,6 +42,31 @@ $ yarn test
 ```
 
 For now, all funcitonal tests are implemented with Jest and Supertest. In the future, cucumber will substitute them.
+
+<hr>
+<br>
+
+<h2>💾 <strong>Database</strong></h2>
+<br>
+<p>Typeorm:<p>
+
+Create a new migration:
+
+```javascript
+$ yarn typeorm migration:create -n CreateCustomers
+```
+
+Run the new migration:
+
+```javascript
+$ yarn typeorm migration:run
+```
+
+If there is a problem, you can revert the last migration:
+
+```javascript
+$ yarn typeorm migration:revert
+```
 
 <hr>
 <br>

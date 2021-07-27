@@ -9,7 +9,7 @@ interface IRequest {
   name: string;
   email: string;
   password?: string;
-  oldPassword?: string;
+  old_password?: string;
 }
 
 class UpdateUsertService {
@@ -18,7 +18,7 @@ class UpdateUsertService {
     name,
     email,
     password,
-    oldPassword,
+    old_password,
   }: IRequest): Promise<User> {
     const usersRepository = getCustomRepository(UserRepository);
     const user = await usersRepository.findById(user_id);
@@ -34,12 +34,12 @@ class UpdateUsertService {
       throw new AppError('There is already one user with this email');
     }
 
-    if (password && !oldPassword) {
+    if (password && !old_password) {
       throw new AppError('Old password is required');
     }
 
-    if (oldPassword && password) {
-      const checkOldPassword = compare(oldPassword, user.password);
+    if (old_password && password) {
+      const checkOldPassword = compare(old_password, user.password);
 
       if (!checkOldPassword) {
         throw new AppError('Old password does not match.');
