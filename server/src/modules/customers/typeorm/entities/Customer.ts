@@ -9,7 +9,7 @@ import {
 
 import { v4 as uuid } from 'uuid';
 
-@Entity('custumers')
+@Entity('customers')
 export class Customer extends BaseEntity {
   @PrimaryColumn('uuid')
   readonly id: string;

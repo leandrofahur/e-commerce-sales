@@ -1,4 +1,4 @@
-import { name, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import CreateCustomerService from '../services/CreateCustomerService';
 import DeleteCustomerService from '../services/DeleteCustomerService';
 import ListCustomerService from '../services/ListCustomerService';
@@ -22,6 +22,7 @@ export default class ProductsController {
 
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, email } = request.body;
+
     const createCustomer = new CreateCustomerService();
     const customer = await createCustomer.execute({ name, email });
     return response.json(customer);

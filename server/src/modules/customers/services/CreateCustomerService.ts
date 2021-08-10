@@ -11,10 +11,9 @@ interface IRequest {
 class CreateCustomerService {
   public async execute({ name, email }: IRequest): Promise<Customer> {
     const customersRepository = getCustomRepository(CustomersRepository);
-
     // check another email with the same name:
-    const emailExists = await customersRepository.findByEmail(email);
 
+    const emailExists = await customersRepository.findByEmail(email);
     if (emailExists) {
       throw new AppError('Email address already in use!');
     }
