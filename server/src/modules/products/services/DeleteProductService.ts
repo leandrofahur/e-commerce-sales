@@ -13,7 +13,6 @@ class DeleteProductService {
     if (!product) {
       throw new AppError('Product does not exist in the database');
     }
-
     await productsRepository.remove(product);
   }
 }
